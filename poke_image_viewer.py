@@ -51,7 +51,7 @@ def handle_set_desktop():
   Sets the desktop bg image to the current Pokemon Display
 
   """
-  image_lib.set_desktop_background_image(image_path)
+image_lib.set_desktop_background_image(image_path)
 
 btn_set_desktop = ttk.Button(frm, text='Set as Desktop Image', command=handle_set_desktop)
 btn_set_desktop.state('Disable')
@@ -63,6 +63,24 @@ pokemon_list.sort()
 cbox_poke_sel = ttk.Combobox(frm, values=pokemon_list, state = 'readonly')
 cbox_poke_sel.set("Select a pokemon")
 
+def handle_poke_sel(event):
+  global image_path
+
+  current_sel = cbox_poke_sel.get()
+  image_path =poke_api.download_pokemon_artwork(current_sel, images_dir)
+  if image_path:
+      lbl_image['text'] = None
+      photo['file'] = image_path
+
+
+
+
+      else
+
+      
+
 # TODO: Populate frames with widgets and define event handler functions
+
+cbox_poke_sel.bind('<<ComboboxSelected>>', handle_poke_sel)
 
 root.mainloop()
