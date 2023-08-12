@@ -71,15 +71,9 @@ def handle_poke_sel(event):
   if image_path:
       lbl_image['text'] = None
       photo['file'] = image_path
-
-
-
-
-      else
-
-      
-
-# TODO: Populate frames with widgets and define event handler functions
+  else:
+      print("This Image is not available in the server")
+button_dsk_set = (['!not enabled' if image_path else 'Disabled'])
 
 cbox_poke_sel.bind('<<ComboboxSelected>>', handle_poke_sel)
 
